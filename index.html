@@ -8,36 +8,36 @@
     <title>Vacations+</title>
   </head>
   <body>
-    <div class="header">
-      <h1>Vacations+</h1>
-      <p>
-        Recommending vacation destinations for the past 20 years!
-      </p>
-    </div>
-    <div class="questionaire">
-      <p>Answer the following qustions to the best of your ability, feel free to skip a question if you don't have an answer. Feel free to select multiple things in select boxes by holding control</p>
-      <form id="questionaire">
-        <label for="terain">What kind of terrain do you prefer?</label>
-        <select name="terrain" multiple id="terrain"></select>
-        <label for="adventure">What level of adventure are you looking for?</label>
-        <select name="adventure" multiple id="adventure"></select>
-        <label for="partysize">What is the size of your party?</label>
-        <select name="partysize" multiple id="partysize"></select>
-        <label for="budget">What is your buget?</label>
-        <select name="budget" multiple id="budget"></select>
-        <label for="time">How much time would you like to beon vacation for?</label>
-        <select name="time" multiple id="time"></select>
-        <input type="submit" name="submit" value="Calculate Destination!">
-      </form>
-    </div>
-    <div class="vacation" id="antartica">
-      Antartica
-    </div>
-    <div class="vacation" id="bahamas">
-      Kamalame Cay, The Bahamas
-    </div>
-    <div class="vacation" id="london">
-      london
+    <div class="container">
+      <div class="header">
+        <h1>Vacations+</h1>
+        <p>
+          Recommending vacation destinations for the past 20 years!
+        </p>
+      </div>
+        <form id="questionaire">
+          <p>Answer the following qustions to the best of your ability, feel free to skip a question if you don't have an answer. Feel free to select multiple things in each category!</p>
+          <p>What kind of terrain do you prefer?</p>
+          <div id="terrain"></div>
+          <p>What level of adventure are you looking for?</p>
+          <div id="adventure"></div>
+          <p>What is the size of your party?</p>
+          <div id="partysize"></div>
+          <p>What is your buget?</p>
+          <div id="budget"></div>
+          <p>How much time would you like to beon vacation for?</p>
+          <div id="time"></div>
+          <input type="submit" name="submit" value="Calculate Destination!">
+        </form>
+      <div class="vacation" id="alaska">
+        You should checkout the wonderful vacationland of antartica!
+      </div>
+      <div class="vacation" id="bahamas">
+        Kamalame Cay, The Bahamas
+      </div>
+      <div class="vacation" id="london">
+        london
+      </div>
     </div>
   </body>
 </html>

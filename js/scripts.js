@@ -5,13 +5,13 @@ $(document).ready(function() {
 
   // ids of destinations
   var destinations = [
-    ["antartica", 0],
+    ["alaska", 0],
     ["london", 0],
     ["bahamas",0]
   ];
   var terrain = [
     "terrain", // name of html input to be put into
-    ['Desolate', destinations[0][0]],
+    ['Cold', destinations[0][0]],
     ['City', destinations[1][0]],
     ['Tropical', destinations[2][0]]
   ];
@@ -30,8 +30,8 @@ $(document).ready(function() {
   var budget = [
     "budget",
     ['Budget', destinations[2][0]],
-    ['Got money to blow', destinations[1][0]],
-    ['Can afford the most rigorous suvival gear', destinations[0][0]]
+    ['Got money for souveneirs', destinations[1][0]],
+    ['Can afford Racecar', destinations[0][0]]
   ];
   var time = [
     "time",
@@ -41,30 +41,32 @@ $(document).ready(function() {
   ];
 
   // mock up html for questionaire
-  var optionBegin = '<option value="';
-  var optionMiddle= '">';
-  var optionEnd = '</option>';
+  var optionBegin   = '<input type="checkbox" value="';
+  var optionMiddle  = '"id="'
+  var optionMiddle2 = '"><label for="'
+  var optionMiddle3 = '">';
+  var optionEnd     = '</label>';
 
   // combine answer arrays into one for easy looping
   var questionaire = [terrain, adventure, partysize, budget, time];
 
+  // ids for labels and checkboxes
+  var ids = 0;
   // loop to put answers into questionaire
   questionaire.forEach(function(question){
     var name = question.shift();
     question.forEach(function(answer) {
-      var option = optionBegin + answer[1] + optionMiddle + answer[0] + optionEnd;
+      var option = optionBegin + answer[1] + optionMiddle + ids + optionMiddle2 + ids + optionMiddle3 + answer[0] + optionEnd;
+      ids++;
       $("#"+name).append(option);
     });
   });
 
+  var questionaireSelector = "#questionaire";
   // form sumbmit
-  $("#questionaire").submit(function(event){
-    // get the answers
-    // loop through answers and give destinations points
-    // find the destination with the highest points
-    // show that destination, hide the questionaire
-    // if two are tied, random or show both?
+  $(questionaireSelector).submit(function(event){
 
+    // tally points
     $("option:checked").each(function() {
       var answer = $(this).val();
       if( answer === destinations[0][0]) {
@@ -76,15 +78,18 @@ $(document).ready(function() {
       }
     });
 
+    // questionaire has been answered, hide it
+    $(questionaireSelector).hide();
+
     // find out which destinations won
     if( destinations[0][1] >= destinations[1][1] && destinations[0][1] >= destinations[2][1] ) {
-      $("#"+destinations[0][0]).show().text(destinations[0][0] + " " + destinations[0][1]);
+      $("#"+destinations[0][0]).show();
     }
     if( destinations[1][1] >= destinations[0][1] && destinations[1][1] >= destinations[2][1] ) {
-      $('#'+destinations[1][0]).show().text(destinations[1][0] + " " + destinations[1][1]);
+      $('#'+destinations[1][0]).show();
     }
     if( destinations[2][1] >= destinations[0][1] && destinations[2][1] >= destinations[1][1] ) {
-      $('#'+destinations[2][0]).show().text(destinations[2][0] + " " + destinations[2][1]);
+      $('#'+destinations[2][0]).show();
     }
     destinations.forEach(function(destination){
       destination[1]=0;
