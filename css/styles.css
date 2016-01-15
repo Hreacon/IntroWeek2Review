@@ -1,0 +1,10 @@
+.header {
+  width:80%;
+  margin:auto;
+  text-align: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border:1px solid black;
+  background:gray;
+  margin-top:-10px;
+}
