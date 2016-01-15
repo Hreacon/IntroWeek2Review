@@ -86,6 +86,8 @@ $(document).ready(function() {
 
     // questionaire has been answered, hide it
     $(questionaireSelector).hide();
+    // show reset button
+    $('.resetButton').show();
 
     // find out which destinations won
     if( destinations[0][1] >= destinations[1][1] && destinations[0][1] >= destinations[2][1] ) {

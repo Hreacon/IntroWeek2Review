@@ -1,12 +1,16 @@
+body {
+  background: #d5b942;
+}
 .header {
   width:80%;
   margin:auto;
   text-align: center;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  border:1px solid black;
-  background:gray;
+  border:1px solid #d9d375;
+  background:#edfbc1;
   margin-top:-10px;
+  margin-bottom: 10px;
 }
 #questionaire {
   width:90%;
@@ -14,8 +18,8 @@
   text-align: center;
   padding:10px;
   border-radius: 10px;
-  border:2px solid black;
-  background: gray;
+  border:2px solid #e3de8f;
+  background: #edfbc1;
 }
 #questionaire > div p {
   font-size: 1.2em;
@@ -26,13 +30,13 @@
   display: block;
   padding:2%;
   font-size: 1.1em;
-  background:green;
-  border:1px solid black;
+  background:#e3de8f;
+  border:1px solid #d9d375;
   margin:2%;
   border-radius: 5px;
 }
 :checked + label{
-  background-color:blue !important;
+  background-color:#d5b942 !important;
 }
 input[type=checkbox] {
   opacity: 0;
@@ -46,8 +50,29 @@ input[type=submit] {
   font-weight: bold;
   font-size:.8em;
   width:100%;
-  background: green;
-  border-color: darkgreen;
+  background: #e3de8f;
+  border-color: #d9d375;
+}
+.resetButton {
+    display:none;
+}
+.resetButton a{
+  display:block;
+  width:90%;
+  background:#e3de8f;
+  border-radius: 5px;
+  border:1px solid #edfbc1;
+  text-align: center;
+  padding: 10px;
+  margin: auto;
+  font-weight: bold;
+  margin-top:20px;
+  text-decoration: none;
+  color:black;
+}
+.resetButton a:hover {
+  border-color: #bfcbc2;
+  background: #edfbc1;
 }
 @media screen and (min-width:450px) {
   input[type=submit] {
