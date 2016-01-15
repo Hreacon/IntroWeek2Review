@@ -8,9 +8,6 @@
   background:gray;
   margin-top:-10px;
 }
-.vacation {
-  display: none;
-}
 #questionaire {
   width:90%;
   margin:auto;
@@ -69,4 +66,11 @@ input[type=submit] {
   input[type=submit] {
     width:70%;
   }
+}
+.vacation {
+  width:80%;
+  margin:auto;
+}
+.imggallery img {
+  width:25%;
 }

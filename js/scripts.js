@@ -1,13 +1,19 @@
+function loadImages(name, index) {
+  var imgBegin = '<img src="img/';
+  var imgEnd   = '.jpg">';
+  $("#"+name+" .imggallery").append(imgBegin + name + index + imgEnd);
+}
+
 $(document).ready(function() {
   // make an array of answers for the questions
   // insert the answers into the questions on the website
   // on form submit, read the answers and tally the points
 
-  // ids of destinations
+  // ids of destinations, points, number of images(starting at 1)
   var destinations = [
-    ["alaska", 0],
-    ["london", 0],
-    ["bahamas",0]
+    ["alaska", 0, 7],
+    ["london", 0, 0],
+    ["bahamas",0, 0]
   ];
   var terrain = [
     "terrain", // name of html input to be put into
@@ -91,9 +97,20 @@ $(document).ready(function() {
     if( destinations[2][1] >= destinations[0][1] && destinations[2][1] >= destinations[1][1] ) {
       $('#'+destinations[2][0]).show();
     }
+
+    // reset points
     destinations.forEach(function(destination){
       destination[1]=0;
     });
+
+    // prevent form from refreshing page
     event.preventDefault();
   });
+
+  // load images into galleries
+  destinations.forEach(function(destination) {
+    for(var index=0;index<=destination[2];index++) {
+      loadImages(destination[0], index);
+    }
+  })
 });
