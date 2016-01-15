@@ -12,8 +12,8 @@ $(document).ready(function() {
   // ids of destinations, points, number of images(starting at 1)
   var destinations = [
     ["alaska", 0, 7],
-    ["london", 0, 0],
-    ["bahamas",0, 0]
+    ["london", 0, 6],
+    ["bahamas",0, 7]
   ];
   var terrain = [
     "terrain", // name of html input to be put into
@@ -109,10 +109,23 @@ $(document).ready(function() {
 
   // load images into galleries
   destinations.forEach(function(destination) {
+    alert(destination[0]);
     for(var index=1;index<=destination[2];index++) {
       loadImages(destination[0], index);
     }
   });
-
-  
+  // add click function to images to load fullscreen
+  $('.imggallery').children('img').each(function() {
+    $(this).click(function() {
+    $('.maximg img').attr('src', this.src);
+      if( window.innerWidth > 1000 ) {
+        $('.maximg div').attr('top', '5%');
+      }
+      $('.maximg img').attr('width', window.innerWidth - window.innerWidth*.2);
+      $('.maximg').show();
+    });
+  });
+  $('.maximg').click(function() {
+    $(this).hide();
+  });
 });
