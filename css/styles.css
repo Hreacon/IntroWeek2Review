@@ -22,17 +22,17 @@ body {
   background: #edfbc1;
 }
 #questionaire > div p {
-  font-size: 1.2em;
+
   font-weight: bold;
 }
 #questionaire div div[id] label {
   width:90%;
   display: block;
-  padding:2%;
+  padding:10px 0;
   font-size: 1.1em;
   background:#e3de8f;
   border:1px solid #d9d375;
-  margin:2%;
+  margin:10px;
   border-radius: 5px;
 }
 :checked + label{
@@ -74,13 +74,48 @@ input[type=submit] {
   border-color: #bfcbc2;
   background: #edfbc1;
 }
+.vacation {
+  width:100%;
+  text-align: center;
+  background:#edfbc1;
+  display:none;
+}
+.imggallery img {
+  width:100%;
+  padding:5px 0;
+}
+.clear {
+  clear:both;
+}
+.maximg {
+  z-index: 10;
+  display: none;
+  background-color:rgba(0,0,0,.8);
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+.maximg div {
+  position: fixed;
+  left: 50%;
+  top:5%;
+  bottom:5%;
+}
+.maximg div img {
+  height:auto;
+  margin-left:-50%;
+  max-height:100%;
+  border-radius: 10px;
+}
 @media screen and (min-width:450px) {
   input[type=submit] {
     font-size:1.2em;
   }
 }
 @media screen and (min-width:850px){
-    #questionaire > div {
+  #questionaire > div {
     width:50%;
     float:left;
   }
@@ -91,11 +126,23 @@ input[type=submit] {
   input[type=submit] {
     width:70%;
   }
-}
-.vacation {
-  width:80%;
-  margin:auto;
-}
-.imggallery img {
-  width:25%;
+  .vacation {
+    width:90%;
+    margin: auto;
+    padding:10px;
+    border-radius: 10px;
+    border:2px solid #d9d375;
+  }
+  .vacation h1 {
+    font-size: 2em;
+  }
+  .imggallery {
+    margin:auto;
+  }
+  .imggallery img {
+    width:30%;
+    display: inline-block;
+    margin:1%;
+    border-radius: 10px;
+  }
 }

@@ -5,15 +5,11 @@ function loadImages(name, index) {
 }
 
 $(document).ready(function() {
-  // make an array of answers for the questions
-  // insert the answers into the questions on the website
-  // on form submit, read the answers and tally the points
-
   // ids of destinations, points, number of images(starting at 1)
   var destinations = [
     ["alaska", 0, 7],
-    ["london", 0, 0],
-    ["bahamas",0, 0]
+    ["london", 0, 6],
+    ["bahamas",0, 7]
   ];
   var terrain = [
     "terrain", // name of html input to be put into
@@ -45,17 +41,14 @@ $(document).ready(function() {
     ['2 Weeks', destinations[1][0]],
     ['3-8 Weeks', destinations[0][0]]
   ];
-
   // mock up html for questionaire
   var optionBegin   = '<input type="checkbox" value="';
   var optionMiddle  = '"id="'
   var optionMiddle2 = '"><label for="'
   var optionMiddle3 = '">';
   var optionEnd     = '</label>';
-
   // combine answer arrays into one for easy looping
   var questionaire = [terrain, adventure, partysize, budget, time];
-
   // ids for labels and checkboxes
   var ids = 0;
   // loop to put answers into questionaire
@@ -67,11 +60,9 @@ $(document).ready(function() {
       $("#"+name).append(option);
     });
   });
-
   var questionaireSelector = "#questionaire";
   // form sumbmit
   $(questionaireSelector).submit(function(event){
-
     // tally points
     $(":checked").each(function() {
       var answer = $(this).val();
@@ -83,12 +74,10 @@ $(document).ready(function() {
         destinations[2][1]++;
       }
     });
-
     // questionaire has been answered, hide it
     $(questionaireSelector).hide();
     // show reset button
     $('.resetButton').show();
-
     // find out which destinations won
     if( destinations[0][1] >= destinations[1][1] && destinations[0][1] >= destinations[2][1] ) {
       $("#"+destinations[0][0]).show();
@@ -99,20 +88,31 @@ $(document).ready(function() {
     if( destinations[2][1] >= destinations[0][1] && destinations[2][1] >= destinations[1][1] ) {
       $('#'+destinations[2][0]).show();
     }
-
     // reset points
     destinations.forEach(function(destination){
       destination[1]=0;
     });
-
     // prevent form from refreshing page
     event.preventDefault();
   });
-
   // load images into galleries
   destinations.forEach(function(destination) {
-    for(var index=0;index<=destination[2];index++) {
+    for(var index=1;index<=destination[2];index++) {
       loadImages(destination[0], index);
     }
-  })
+  });
+  // add click function to images to load fullscreen
+  $('.imggallery').children('img').each(function() {
+    $(this).click(function() {
+    $('.maximg img').attr('src', this.src);
+      if( window.innerWidth > 1000 ) {
+        $('.maximg div').attr('top', '5%');
+      }
+      $('.maximg img').attr('width', window.innerWidth - window.innerWidth*.2);
+      $('.maximg').show();
+    });
+  });
+  $('.maximg').click(function() {
+    $(this).hide();
+  });
 });
