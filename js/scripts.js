@@ -4,38 +4,40 @@ $(document).ready(function() {
   // on form submit, read the answers and tally the points
 
   // ids of destinations
-  var destination1 = "antartica";
-  var destination2 = "london";
-  var destination3 = "bahamas"
+  var destionations = [
+    ["antartica", 0],
+    ["london", 0],
+    ["bahamas",0]
+  ];
   var terrain = [
     "terrain", // name of html input to be put into
-    ['Desolate', destination1],
-    ['City', destination2],
-    ['Tropical', destination3]
+    ['Desolate', destinations[0][0]],
+    ['City', destinations[1][0]],
+    ['Tropical', destinations[2][0]]
   ];
   var adventure = [
     "adventure",
-    ['Relaxing', destination3],
-    ['Feeling adventurous', destination2],
-    ['Hardcore', destination1]
+    ['Relaxing', destinations[2][0]],
+    ['Feeling adventurous', destinations[1][0]],
+    ['Hardcore', destinations[0][0]]
   ];
   var partysize = [
     "partysize",
-    ['Alone', destination1],
-    ['Married, no kids', destination3],
-    ['With kids', destination2]
+    ['Alone', destinations[0][0]],
+    ['Married, no kids', destinations[2][0]],
+    ['With kids', destinations[1][0]]
   ];
   var budget = [
     "budget",
-    ['Budget', destination3],
-    ['Got money to blow', destination2],
-    ['Can afford the most rigorous suvival gear', destination1]
+    ['Budget', destinations[2][0]],
+    ['Got money to blow', destinations[1][0]],
+    ['Can afford the most rigorous suvival gear', destinations[0][0]]
   ];
   var time = [
     "time",
-    ['1 Week', destination3],
-    ['2 Weeks', destination2],
-    ['3-8 Weeks', destination1]
+    ['1 Week', destinations[2][0]],
+    ['2 Weeks', destinations[1][0]],
+    ['3-8 Weeks', destinations[0][0]]
   ];
 
   // mock up html for questionaire
@@ -63,17 +65,15 @@ $(document).ready(function() {
     // find the destination with the highest points
     // show that destination, hide the questionaire
     // if two are tied, random or show both?
-    var destinationPoints1 = 0;
-    var destinationPoints2 = 0;
-    var destinationPoints3 = 0;
+
     $("input:checked").each(function() {
       var answer = $(this).val();
-      if( answer === destination1) {
-        destinationPoints1++;
-      } else if( answer === destination2 ) {
-        destinationPoints2++;
-      } else if( answer === destination3 ) {
-        destinationPoints3++;
+      if( answer === destinations[0][0]) {
+        destinations[0][1]++;
+      } else if( answer === destinations[1][0] ) {
+        destinations[1][1]++;
+      } else if( answer === destinations[2][0] ) {
+        destinations[2][1]++;
       }
     });
 
