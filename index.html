@@ -15,17 +15,19 @@
       </p>
     </div>
     <div class="questionaire">
-      <form>
+      <p>Answer the following qustions to the best of your ability, feel free to skip a question if you don't have an answer. Feel free to select multiple things in select boxes by holding control</p>
+      <form id="questionaire">
         <label for="terain">What kind of terrain do you prefer?</label>
-        <div id="terrain"></div>
+        <select name="terrain" multiple id="terrain"></select>
         <label for="adventure">What level of adventure are you looking for?</label>
-        <div id="adventure"></div>
+        <select name="adventure" multiple id="adventure"></select>
         <label for="partysize">What is the size of your party?</label>
-        <div id="partysize"></div>
+        <select name="partysize" multiple id="partysize"></select>
         <label for="budget">What is your buget?</label>
-        <div id="budget"></div>
+        <select name="budget" multiple id="budget"></select>
         <label for="time">How much time would you like to beon vacation for?</label>
-        <div id="time"></div>
+        <select name="time" multiple id="time"></select>
+        <input type="submit" name="submit" value="Calculate Destination!">
       </form>
     </div>
     <div class="vacation" id="antartica">

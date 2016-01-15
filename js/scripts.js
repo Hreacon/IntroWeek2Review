@@ -4,7 +4,7 @@ $(document).ready(function() {
   // on form submit, read the answers and tally the points
 
   // ids of destinations
-  var destionations = [
+  var destinations = [
     ["antartica", 0],
     ["london", 0],
     ["bahamas",0]
@@ -41,10 +41,9 @@ $(document).ready(function() {
   ];
 
   // mock up html for questionaire
-  var optionBegin = '<div><input type="radio" value="';
-  var optionMiddle= '" name="';
-  var optionMiddle2= '">';
-  var optionEnd = '</div>';
+  var optionBegin = '<option value="';
+  var optionMiddle= '">';
+  var optionEnd = '</option>';
 
   // combine answer arrays into one for easy looping
   var questionaire = [terrain, adventure, partysize, budget, time];
@@ -53,7 +52,7 @@ $(document).ready(function() {
   questionaire.forEach(function(question){
     var name = question.shift();
     question.forEach(function(answer) {
-      var option = optionBegin + answer[1] + optionMiddle + name + optionMiddle2 + answer[0] + optionEnd;
+      var option = optionBegin + answer[1] + optionMiddle + answer[0] + optionEnd;
       $("#"+name).append(option);
     });
   });
@@ -66,7 +65,7 @@ $(document).ready(function() {
     // show that destination, hide the questionaire
     // if two are tied, random or show both?
 
-    $("input:checked").each(function() {
+    $("option:checked").each(function() {
       var answer = $(this).val();
       if( answer === destinations[0][0]) {
         destinations[0][1]++;
@@ -77,6 +76,19 @@ $(document).ready(function() {
       }
     });
 
+    // find out which destinations won
+    if( destinations[0][1] >= destinations[1][1] && destinations[0][1] >= destinations[2][1] ) {
+      $("#"+destinations[0][0]).show().text(destinations[0][0] + " " + destinations[0][1]);
+    }
+    if( destinations[1][1] >= destinations[0][1] && destinations[1][1] >= destinations[2][1] ) {
+      $('#'+destinations[1][0]).show().text(destinations[1][0] + " " + destinations[1][1]);
+    }
+    if( destinations[2][1] >= destinations[0][1] && destinations[2][1] >= destinations[1][1] ) {
+      $('#'+destinations[2][0]).show().text(destinations[2][0] + " " + destinations[2][1]);
+    }
+    destinations.forEach(function(destination){
+      destination[1]=0;
+    });
     event.preventDefault();
   });
 });
