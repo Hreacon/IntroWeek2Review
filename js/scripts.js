@@ -2,6 +2,8 @@ $(document).ready(function() {
   // make an array of answers for the questions
   // insert the answers into the questions on the website
   // on form submit, read the answers and tally the points
+
+  // ids of destinations
   var destination1 = "antartica";
   var destination2 = "london";
   var destination3 = "bahamas"
@@ -52,5 +54,29 @@ $(document).ready(function() {
       var option = optionBegin + answer[1] + optionMiddle + name + optionMiddle2 + answer[0] + optionEnd;
       $("#"+name).append(option);
     });
+  });
+
+  // form sumbmit
+  $("#questionaire").submit(function(event){
+    // get the answers
+    // loop through answers and give destinations points
+    // find the destination with the highest points
+    // show that destination, hide the questionaire
+    // if two are tied, random or show both?
+    var destinationPoints1 = 0;
+    var destinationPoints2 = 0;
+    var destinationPoints3 = 0;
+    $("input:checked").each(function() {
+      var answer = $(this).val();
+      if( answer === destination1) {
+        destinationPoints1++;
+      } else if( answer === destination2 ) {
+        destinationPoints2++;
+      } else if( answer === destination3 ) {
+        destinationPoints3++;
+      }
+    });
+
+    event.preventDefault();
   });
 });
