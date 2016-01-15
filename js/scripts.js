@@ -67,7 +67,7 @@ $(document).ready(function() {
   $(questionaireSelector).submit(function(event){
 
     // tally points
-    $("option:checked").each(function() {
+    $(":checked").each(function() {
       var answer = $(this).val();
       if( answer === destinations[0][0]) {
         destinations[0][1]++;
