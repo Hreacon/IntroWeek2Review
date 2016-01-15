@@ -1,3 +1,6 @@
+body{
+  background: gray;
+}
 .header {
   width:80%;
   margin:auto;
@@ -54,8 +57,25 @@ input[type=submit] {
     font-size:1.2em;
   }
 }
+
+.vacation {
+  width:100%;
+  text-align: center;
+  background:gray;
+}
+.imggallery img {
+  width:100%;
+  padding:5px 0;
+}
+.clear {
+  clear:both;
+}
+
 @media screen and (min-width:850px){
-    #questionaire > div {
+  body {
+    background: white;
+  }
+  #questionaire > div {
     width:50%;
     float:left;
   }
@@ -66,11 +86,22 @@ input[type=submit] {
   input[type=submit] {
     width:70%;
   }
-}
-.vacation {
-  width:80%;
-  margin:auto;
-}
-.imggallery img {
-  width:25%;
+  .vacation {
+    width:90%;
+    margin: auto;
+    padding:10px;
+    border-radius: 10px;
+    border:2px solid black;
+  }
+  .vacation h1 {
+    font-size: 2em;
+  }
+  .imggallery {
+    margin:auto;
+  }
+  .imggallery img {
+    width:30%;
+    display: inline-block;
+    margin:1%;
+  }
 }

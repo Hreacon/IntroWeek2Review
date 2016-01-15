@@ -109,8 +109,10 @@ $(document).ready(function() {
 
   // load images into galleries
   destinations.forEach(function(destination) {
-    for(var index=0;index<=destination[2];index++) {
+    for(var index=1;index<=destination[2];index++) {
       loadImages(destination[0], index);
     }
-  })
+  });
+
+  
 });
