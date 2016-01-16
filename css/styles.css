@@ -1,42 +1,33 @@
-body {
-  background: #d5b942;
-}
 .header {
   width:80%;
   margin:auto;
   text-align: center;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  border:1px solid #d9d375;
-  background:#edfbc1;
+  border:1px solid;
   margin-top:-10px;
   margin-bottom: 10px;
 }
 #questionaire {
-  width:90%;
+  width:100%;
   margin:auto;
   text-align: center;
   padding:10px;
   border-radius: 10px;
-  border:2px solid #e3de8f;
-  background: #edfbc1;
+  border:2px solid;
+  margin-left:-5%;
 }
 #questionaire > div p {
-
   font-weight: bold;
 }
 #questionaire div div[id] label {
-  width:90%;
+  width:100%;
   display: block;
   padding:10px 0;
   font-size: 1.1em;
-  background:#e3de8f;
-  border:1px solid #d9d375;
+  border:1px solid;
   margin:10px;
   border-radius: 5px;
-}
-:checked + label{
-  background-color:#d5b942 !important;
 }
 input[type=checkbox] {
   opacity: 0;
@@ -50,18 +41,15 @@ input[type=submit] {
   font-weight: bold;
   font-size:.8em;
   width:100%;
-  background: #e3de8f;
-  border-color: #d9d375;
 }
 .resetButton {
     display:none;
 }
-.resetButton a{
+.resetButton a {
   display:block;
   width:90%;
-  background:#e3de8f;
   border-radius: 5px;
-  border:1px solid #edfbc1;
+  border:1px solid;
   text-align: center;
   padding: 10px;
   margin: auto;
@@ -70,14 +58,9 @@ input[type=submit] {
   text-decoration: none;
   color:black;
 }
-.resetButton a:hover {
-  border-color: #bfcbc2;
-  background: #edfbc1;
-}
 .vacation {
   width:100%;
   text-align: center;
-  background:#edfbc1;
   display:none;
 }
 .imggallery img {
@@ -109,12 +92,43 @@ input[type=submit] {
   max-height:100%;
   border-radius: 10px;
 }
+body, .header, #questionaire, .resetButton a:hover {
+  background: #edfbc1;
+}
+#questionaire div div[id] label, input[type=submit], .resetButton a {
+  background:#e3de8f;
+}
+:checked + label{
+  background-color:#d5b942 !important;
+}
+.header, #questionaire, #questionaire div div[id] label, input[type=submit] {
+  border-color:#edfbc1;
+}
+.resetButton a, .vacation {
+  border-color: #edfbc1;
+}
+.resetButton a:hover {
+  border-color: #bfcbc2;
+}
 @media screen and (min-width:450px) {
   input[type=submit] {
     font-size:1.2em;
   }
+  #questionaire {
+    width:90%;
+    margin-left:0;
+  }
 }
 @media screen and (min-width:850px){
+  body {
+    background: #d5b942;
+  }
+  .header, #questionaire, #questionaire div div[id] label, input[type=submit] {
+    border-color:#d9d375;
+  }
+  #questionaire {
+    margin:auto;
+  }
   #questionaire > div {
     width:50%;
     float:left;
@@ -122,6 +136,9 @@ input[type=submit] {
   #questionaire > div:nth-child(6) {
     float:none;
     margin:0 auto;
+  }
+  #questionaire div div[id] label {
+    width:90%;
   }
   input[type=submit] {
     width:70%;
